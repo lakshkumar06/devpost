@@ -6,7 +6,7 @@ import Notifications from './components/Notifications';
 import MyInvestments from './components/MyInvestments';
 import MyProjects from './components/MyProjects';
 import contractABI from './contractABI.json';
-
+import LandingPage from './components/LandingPage';
 function RegistrationForm({ contract, account, onRegistered }) {
   const [name, setName] = useState('');
   const [role, setRole] = useState('investor');
@@ -152,18 +152,20 @@ function App() {
   // Landing page
   if (!account) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl shadow-2xl text-center">
-          <h1 className="text-4xl font-bold text-white mb-6">Project Funding Platform</h1>
-          <p className="text-white/80 mb-8">Connect your wallet to get started</p>
-          <button 
-            onClick={connectWallet}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 transform hover:scale-105"
-          >
-            Connect Wallet
-          </button>
+      <div className="bg-white/10">
+      <div className="flex nav px-[5vw] py-[20px] justify-between  border-b-[1px] border-[#e6e6e6] text-center" >
+        <div className="flexCol">
+        <h1 className="text-[20px] font-bold text-black">Project Funding Platform</h1>
         </div>
+      <button 
+        onClick={connectWallet}
+        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-8 rounded-lg transition-all duration-200 transform hover:scale-105"
+      >
+        Connect Wallet
+      </button>
       </div>
+    <LandingPage/>        
+  </div>
     );
   }
 
